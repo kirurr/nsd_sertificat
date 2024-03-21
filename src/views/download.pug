@@ -1,0 +1,14 @@
+section
+	a(href="./results/result.png" download=image) download
+	table#table
+		tr
+			td=table.num
+			td=table.data
+			td=table.name
+			td=table.status
+			td=table.sum
+			td 0
+			td=table.sum
+			td Артём
+	button#btn(data-clipboard-target="#table") copy
+script(src="./main.js")
