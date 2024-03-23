@@ -12,7 +12,7 @@ export const imageRepo = {
 				.title { fill: #0e0e3e; font-size: 25px; };
 			</style>
 			<text x="50%" y="755" text-anchor="middle" class="title">${name}</text>
-			<text x="50%" y="810" text-anchor="middle" class="title">№${number} на сумму ${sum} рублей</text>
+			<text x="50%" y="810" text-anchor="middle" class="title">№ ${number} на сумму ${sum} рублей</text>
 		</svg>`
 
     const svgBuffer = Buffer.from(svgText)
@@ -32,10 +32,10 @@ export const imageRepo = {
 			day: '2-digit',
 		}
 
-		let currentDate = date.toLocaleDateString(undefined, options)
+		let currentDate = date.toLocaleDateString("ru-RU", options)
 		currentDate = this.formatDate(currentDate)
 
-		let futureDate = new Date(2025, date.getMonth(), date.getDate()).toLocaleDateString(undefined, options)
+		let futureDate = new Date(2025, date.getMonth(), date.getDate()).toLocaleDateString("ru-RU", options)
 		futureDate = this.formatDate(futureDate)
 		
 		return [currentDate, futureDate]

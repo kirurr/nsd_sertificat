@@ -3,13 +3,28 @@ html(lang="en")
 	head
 		meta(charset="UTF-8")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
-		title Document
+		title NSD sertificat generator
 		script(src="https://unpkg.com/htmx.org@1.9.11")
 		script(src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js")
 		link(rel="stylesheet", href="./style.css")
 	body
-		form(hx-post="/" hx-swap="outerHTML")
-			input(type="text", name="name" placeholder="name")
-			input(type="number", name="sum" placeholder="sum")
-			input(type="number", name="number" placeholder="number")
-			button(type="submit") submit
+		main(class="w-1/2 p-8 mx-auto my-8 rounded-lg bg-slate-200 divide-y-4 divide-slate-400")
+			section(class="py-8")
+				h1(class="text-xl font-bold text-center") NSD sertificat generator v1
+				a(class="block p-2 mx-auto text-blue-600 underline w-fit"
+				 target="_blank" 
+				 href="https://docs.google.com/spreadsheets/d/1qZ1S0jLmnQ-1i3bjuYpK3WTc4taZdbt-/edit?usp=sharing&ouid=101244372098730674937&rtpof=true&sd=true") Ссылка на таблицу
+
+			section(class="flex justify-center py-8")
+				form(hx-post="/" hx-swap="outerHTML" hx-target="#download" class="flex flex-col gap-6")
+					div
+						label(for="name" class="block mb-2") ФИО
+						input#name(required type="text", name="name" placeholder="Иванович Иван Иванов" class="p-2 rounded-lg")
+					div
+						label(for="sum" class="block mb-2") Сумма
+						input#sum(required type="number", name="sum" placeholder="3000" class="p-2 rounded-lg")
+					div
+						label(for="number" class="block mb-2") Номер сертификата
+						input#number(required type="number", name="number" placeholder="317" class="p-2 rounded-lg")
+					button(type="submit" class="block p-2 mx-auto text-white bg-blue-500 rounded-lg w-fit") Сгенерировать
+			section#download(class="hidden")
