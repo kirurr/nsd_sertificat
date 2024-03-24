@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.button {
+		@apply block p-2 mx-auto text-white bg-blue-600 rounded-lg w-fit hover:bg-blue-500 focus-visible:outline-blue-600 focus-visible:outline-offset-4;
+	}
+	.link {
+		@apply p-2 mx-auto text-blue-600 underline w-fit hover:text-blue-500 focus-visible:outline-blue-600 focus-visible:outline-offset-4;
+	}
+	.input {
+		@apply p-2 rounded-lg focus-visible:outline-blue-600 focus-visible:outline-offset-4;
+	}
+}
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}

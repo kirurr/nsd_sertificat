@@ -11,7 +11,7 @@ html(lang="en")
 		main(class="w-full p-8 mx-auto rounded-lg sm:my-8 lg:w-1/2 bg-slate-200 divide-y-4 divide-slate-400")
 			section(class="py-8")
 				h1(class="text-xl font-bold text-center") NSD sertificat generator v1
-				a(class="block p-2 mx-auto text-blue-600 underline w-fit"
+				a(class="block link"
 				 target="_blank" 
 				 href="https://docs.google.com/spreadsheets/d/1qZ1S0jLmnQ-1i3bjuYpK3WTc4taZdbt-/edit?usp=sharing&ouid=101244372098730674937&rtpof=true&sd=true") Ссылка на таблицу
 
@@ -19,12 +19,12 @@ html(lang="en")
 				form(hx-post="/" hx-swap="outerHTML" hx-target="#download" class="flex flex-col gap-6")
 					div
 						label(for="name" class="block mb-2") ФИО
-						input#name(required type="text", name="name" placeholder="Иванович Иван Иванов" class="p-2 rounded-lg")
+						input#name(required type="text", name="name" placeholder="Иванович Иван Иванов" class="input")
 					div
 						label(for="sum" class="block mb-2") Сумма
-						input#sum(required type="number", name="sum" placeholder="3000" class="p-2 rounded-lg")
+						input#sum(required type="number", name="sum" placeholder="3000" class="input")
 					div
 						label(for="number" class="block mb-2") Номер сертификата
-						input#number(required type="number", name="number" placeholder="317" class="p-2 rounded-lg")
-					button(type="submit" class="block p-2 mx-auto text-white bg-blue-500 rounded-lg w-fit") Сгенерировать
+						input#number(required type="number", name="number" placeholder="317" class="input")
+					button(type="submit" class="button") Сгенерировать
 			section#download(class="hidden")
