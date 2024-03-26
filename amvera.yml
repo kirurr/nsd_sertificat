@@ -5,7 +5,11 @@ meta:
     name: npm
     version: 20
 build:
+<<<<<<< HEAD
   additionalCommands: npm run build
+=======
+  skip: false
+>>>>>>> 65a7e49786922c2bf381f7eb1da2d74ea3742649
   artifacts:
     '*': /
 run:
