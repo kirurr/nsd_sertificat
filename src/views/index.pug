@@ -7,6 +7,8 @@ html(lang="en")
 		script(src="https://unpkg.com/htmx.org@1.9.11")
 		script(src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js")
 		link(rel="stylesheet", href="./style.css")
+		link(rel="shortcut icon", href="favicon.svg", type="image/x-icon")
+
 	body(class="sm:bg-inherit bg-slate-200")
 		main(class="w-full p-8 mx-auto rounded-lg sm:my-8 lg:w-1/2 bg-slate-200 divide-y-4 divide-slate-400")
 			section(class="py-8")
@@ -16,7 +18,7 @@ html(lang="en")
 				 href="https://docs.google.com/spreadsheets/d/1qZ1S0jLmnQ-1i3bjuYpK3WTc4taZdbt-/edit#gid=2031766196") Ссылка на таблицу
 
 			section(class="flex justify-center py-8")
-				form(hx-post="/" hx-swap="outerHTML" hx-target="#download" class="flex flex-col gap-6")
+				form(hx-indicator="#indicator" hx-disabled-elt="input, button" hx-post="/" hx-swap="outerHTML" hx-target="#download" class="flex flex-col gap-6")
 					div
 						label(for="name" class="block mb-2") ФИО
 						input#name(required type="text", name="name" placeholder="Иванович Иван Иванов" class="input")
@@ -27,4 +29,5 @@ html(lang="en")
 						label(for="number" class="block mb-2") Номер сертификата
 						input#number(required type="number", name="number" placeholder="317" class="input")
 					button(type="submit" class="button") Сгенерировать
+					div#indicator(class="mx-auto spinner htmx-indicator")
 			section#download(class="hidden")
