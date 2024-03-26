@@ -2,7 +2,7 @@ import sharp from 'sharp'
 import path from 'node:path'
 
 export const imageRepo = {
-  makeImage(name: string, sum: number, number:number) {
+  async makeImage(name: string, sum: number, number:number) {
     const width = 1414
     const height = 2000
 
@@ -11,8 +11,8 @@ export const imageRepo = {
 			<style>
 				.title { fill: #0e0e3e; font-size: 25px; font-family: "Roboto-Regular" };
 			</style>
-			<text x="50%" y="755" text-anchor="middle" class="title">some text ${name}</text>
-			<text x="50%" y="810" text-anchor="middle" class="title">some text and digits ${sum} ${number}</text>
+			<text x="50%" y="755" text-anchor="middle" class="title">${name}</text>
+			<text x="50%" y="810" text-anchor="middle" class="title">№ ${number} на сумму ${sum} рублей</text>
 		</svg>`
 
     const svgBuffer = Buffer.from(svgText)
@@ -21,7 +21,7 @@ export const imageRepo = {
 		const templatePath = path.join(process.cwd(), '/public/template.png')
 		const resultPath = path.join(process.cwd(), '/public/results/result.png')
 
-    sharp(templatePath)
+    await sharp(templatePath)
       .composite([{ input: svgBuffer }]).toFormat('png').toFile(resultPath)
 
 		return fileName
