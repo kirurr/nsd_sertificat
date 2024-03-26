@@ -1,8 +1,8 @@
 import sharp from 'sharp'
-
+import path from 'node:path'
 
 export const imageRepo = {
-  makeImage(name: string, sum: number, number:number): string {
+  async makeImage(name: string, sum: number, number:number) {
     const width = 1414
     const height = 2000
 
@@ -17,10 +17,13 @@ export const imageRepo = {
 
     const svgBuffer = Buffer.from(svgText)
 		const fileName = `sertificat_${number}.png`
+		
+		const templatePath = path.join(process.cwd(), '/public/template.png')
+		const resultPath = path.join(process.cwd(), '/public/results/result.png')
 
-    sharp(`${process.cwd()}/public/template.png`)
-      .composite([{ input: svgBuffer }])
-      .toFile(`${process.cwd()}/public/results/result.png`)
+    await sharp(templatePath)
+      .composite([{ input: svgBuffer }]).png().toFile(resultPath)
+
 		return fileName
   },
 
