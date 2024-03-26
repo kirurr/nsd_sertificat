@@ -7,8 +7,8 @@ mainRoute.get('/', (_req: Request, res: Response) => {
 	res.render('index')
 })
 
-mainRoute.post('/', async (req: Request, res:Response) => {
-	const fileName = await imageRepo.makeImage(req.body.name, req.body.sum, req.body.number)
+mainRoute.post('/', (req: Request, res:Response) => {
+	const fileName = imageRepo.makeImage(req.body.name, req.body.sum, req.body.number)
 	const data = imageRepo.makeData()
 
 	const table = {
