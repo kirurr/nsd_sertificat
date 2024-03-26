@@ -1,10 +1,16 @@
-mmeta:
+---
+meta:
   environment: node
   toolchain:
     name: npm
-    version: 18
+    version: 20
 build:
+  skip: false
+  artifacts:
+    '*': /
   additionalCommands: npm run build
 run:
   scriptName: index.js
+  command: npm run start
+  persistenceMount: /data
   containerPort: 4000
