@@ -1,0 +1,10 @@
+section#result(class="py-8")
+	h2(class="mb-4 text-lg font-bold text-center") Ошибка!
+	ul(class="flex flex-col items-center")
+		each error in errors
+			li(class="py-4 text-center size-fit")
+				span(class="block mb-2") Поле: 
+					=error.field
+				span(class="block") Сообщение: 
+					=error.message
+

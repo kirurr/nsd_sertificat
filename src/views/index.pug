@@ -18,7 +18,7 @@ html(lang="en")
 				 href="https://docs.google.com/spreadsheets/d/1qZ1S0jLmnQ-1i3bjuYpK3WTc4taZdbt-/edit#gid=2031766196") Ссылка на таблицу
 
 			section(class="flex justify-center py-8")
-				form(hx-indicator="#indicator" hx-disabled-elt="input, button" hx-post="/" hx-swap="outerHTML" hx-target="#download" class="flex flex-col gap-6")
+				form(hx-indicator="#indicator" hx-disabled-elt="input, button" hx-post="/" hx-swap="outerHTML" hx-target="#result" class="flex flex-col gap-6")
 					div
 						label(for="name" class="block mb-2") ФИО
 						input#name(required type="text", name="name" placeholder="Иванович Иван Иванов" class="input")
@@ -30,4 +30,4 @@ html(lang="en")
 						input#number(required type="number", name="number" placeholder="317" class="input")
 					button(type="submit" class="button") Сгенерировать
 					div#indicator(class="mx-auto spinner htmx-indicator")
-			section#download(class="hidden")
+			section#result(class="hidden")
