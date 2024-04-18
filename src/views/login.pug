@@ -1,0 +1,8 @@
+form(class="flex flex-col items-center gap-6" hx-post="/login" hx-swap="outerHTML" hx-target="main")
+	h1(class="text-xl font-bold text-center") введите пароль
+	div
+		label(for="password" class="block mb-2") пароль
+		input#password(class="input" type="text" name="password")
+	button(type="submit" class="button") ввести
+	if error 
+		p неверный пароль
