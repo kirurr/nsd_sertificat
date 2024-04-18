@@ -1,6 +1,3 @@
-const button = document.querySelector('#btn')
-const table = document.querySelector('#table')
-
-button.addEventListener('click', () => {
-	navigator.clipboard.writeText(table.innerText)
+document.querySelector('#btn').addEventListener('click', () => {
+	navigator.clipboard.writeText(document.querySelector('table').innerText)
 })
